@@ -4,12 +4,14 @@
 
 <div class="row mt-4">
 
-    <div *ngFor="let personaje of personajes" class="col-4">
+    <div *ngFor="let personaje of personajes" class="col-md-4">
         
         <div class="card mb-3" style="max-width: 540px;">
             <div class="row g-0">
               <div class="col-md-4">
-                <img src="{{personaje.image}}" class="img-fluid rounded-start img-thumbnail" alt="...">
+               <a routerLink="/details-component/{{personaje.id}}" href="#">
+                  <img src="{{personaje.image}}" class="img-fluid rounded-start img-thumbnail" alt="...">
+                </a>
               </div>
               <div class="col-md-8">
                 <div class="card-body">
