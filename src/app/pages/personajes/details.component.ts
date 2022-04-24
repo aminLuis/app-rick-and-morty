@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PersonajesService } from 'src/app/services/personajes.service';
 import { Episodios, Result } from 'src/app/interfaces/Rick_morty.interface';
@@ -20,6 +20,7 @@ export class DetailsComponent implements OnInit {
   @Input() name!:string;
   @Input() air_date!:string;
   @Input() episode!:string;
+  @ViewChild('scroll') scroll!: ElementRef;
 
   constructor(
     private route: ActivatedRoute,
@@ -98,6 +99,14 @@ export class DetailsComponent implements OnInit {
     if(episode){
       this.episodio = episode;
     }
+  }
+
+  scroll_top(){
+    window.scroll({ 
+      top: 0, 
+      left: 0, 
+      behavior: 'smooth' 
+    });   
   }
 
 }
