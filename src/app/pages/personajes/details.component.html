@@ -1,5 +1,5 @@
 
-    <div class="card-header bg-info" id="scroll">
+    <div class="card-header bg-info sombra" id="scroll">
       <h5>Personaje</h5>
     </div>
 
@@ -8,7 +8,7 @@
             <div class="col-md-7 centrar">
               
 
-                <div *ngIf="detalles" class="card mb-3" style="max-width: 540px;">
+                <div *ngIf="detalles" class="card mb-3 sombra" style="max-width: 540px;">
                     <div class="row g-0">
                       <div class="col-md-4">
                         <img src="{{detalles.image}}" class="img-fluid rounded-start img-thumbnail mb-1" alt="...">
@@ -41,13 +41,14 @@
               <div class="row g-0">
                 
                 <div class="col">
-                  <div class="card-body">
+                  <div class="card-body sombra">
                     <h5 class="card-title">Episodios</h5>
                     
                     <ul *ngIf="tam!=7" class="list-group">
                       
                       <li *ngFor="let episodio of all_episodios" 
-                      class="list-group-item"
+                      class="list-group-item alert alert-primary fondo sombra"
+                     
                       >
                         <a type="button"
                         data-bs-toggle="modal" data-bs-target="#modalEpisodio"
@@ -63,7 +64,7 @@
                     <ul *ngIf="tam==7" class="list-group">
                       
                       <li
-                      class="list-group-item"
+                      class="list-group-item alert alert-primary fondo sombra"
                       >
                         <a type="button"
                         data-bs-toggle="modal" data-bs-target="#modalEpisodio"
@@ -96,7 +97,7 @@
               <div class="modal-body">
                
                 <ul *ngIf="!name" class="list-group">
-                  <li class="list-group-item">
+                  <li class="list-group-item sombra">
                     <p *ngIf="episodio"><strong>Nombre: </strong>{{episodio.name}}</p>
                     <p *ngIf="episodio"><strong>Fecha lanzamiento: </strong>{{episodio.air_date}}</p>
                     <p *ngIf="episodio"><strong>Episode: </strong>{{episodio.episode}}</p>
@@ -104,7 +105,7 @@
                 </ul>
 
                 <ul *ngIf="name" class="list-group">
-                  <li class="list-group-item">
+                  <li class="list-group-item sombra">
                     <p><strong>Nombre: </strong>{{name}}</p>
                     <p><strong>Fecha lanzamiento: </strong>{{air_date}}</p>
                     <p><strong>Episode: </strong>{{episode}}</p>
@@ -120,6 +121,6 @@
         <!-- Final modal detalles episodio -->
    
         <div class="top-scroll">
-          <button class="btn btn-success" (click)="scroll_top()">Up</button>
+          <button class="btn btn-success sombra" (click)="scroll_top()">Up</button>
         </div>
 

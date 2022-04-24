@@ -19,12 +19,16 @@ export class PersonajesComponent implements OnInit {
   }
 
 
+  // Método para usar servicio 'getPersonajes', obtener un response
+  // y éste es guardado en un array ya definido
   listarPersonajes(){
     this.servicio_personaje.getPersonajes().subscribe(response=>{
       this.personajes = response.results;
     })
   }
 
+  // Método básico para hacer scroll top al final de una pagina, es decir,
+  // estando al final de la página sube con un efecto suave hasta el inicio de ésta
   scroll_top(){
     window.scroll({ 
       top: 0, 
