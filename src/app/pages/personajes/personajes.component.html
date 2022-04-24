@@ -7,11 +7,12 @@
     <div *ngFor="let personaje of personajes" class="col-md-4">
         
         <div class="card mb-3" style="max-width: 540px;">
+          <a class="decoration" routerLink="/details-component/{{personaje.id}}" href="#">
             <div class="row g-0 sombra">
               <div class="col-md-4">
-               <a routerLink="/details-component/{{personaje.id}}" href="#">
+               
                   <img src="{{personaje.image}}" class="img-fluid rounded-start img-thumbnail" alt="...">
-                </a>
+                
               </div>
               <div class="col-md-8">
                 <div class="card-body">
@@ -19,12 +20,16 @@
                 </div>
               </div>
             </div>
+          </a>
           </div>
+          
 
     </div>
 
 </div>
 
 <div class="top-scroll">
-  <button class="btn btn-success" (click)="scroll_top()">Up</button>
+  <button class="btn btn-success sombra" (click)="scroll_top()">
+    <i class="fa-solid fa-angles-up"></i>
+  </button>
 </div>

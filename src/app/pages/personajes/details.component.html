@@ -45,34 +45,34 @@
                     <h5 class="card-title">Episodios</h5>
                     
                     <ul *ngIf="tam!=7" class="list-group">
-                      
+                      <a type="button"
+                        data-bs-toggle="modal" data-bs-target="#modalEpisodio"
+                        
+                        >
                       <li *ngFor="let episodio of all_episodios" 
                       class="list-group-item alert alert-primary fondo sombra"
-                     
+                      (click)="cargar_episodio(episodio)"
                       >
-                        <a type="button"
-                        data-bs-toggle="modal" data-bs-target="#modalEpisodio"
-                        (click)="cargar_episodio(episodio)"
-                        >
+                        
                           {{episodio.name}}
-                        </a>
+                        
 
                       </li>
+                    </a>
                      
                     </ul>
 
                     <ul *ngIf="tam==7" class="list-group">
                       
+                      <a type="button"
+                        data-bs-toggle="modal" data-bs-target="#modalEpisodio"
+                        >
                       <li
                       class="list-group-item alert alert-primary fondo sombra"
                       >
-                        <a type="button"
-                        data-bs-toggle="modal" data-bs-target="#modalEpisodio"
-                        >
                          {{name}}
-                        </a>
-
                       </li>
+                    </a>
                      
                     </ul>
 
@@ -121,6 +121,8 @@
         <!-- Final modal detalles episodio -->
    
         <div class="top-scroll">
-          <button class="btn btn-success sombra" (click)="scroll_top()">Up</button>
+          <button class="btn btn-success sombra" (click)="scroll_top()">
+            <i class="fa-solid fa-angles-up"></i>
+          </button>
         </div>
 
