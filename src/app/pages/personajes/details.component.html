@@ -1,19 +1,25 @@
-<div class="card">
-    <div class="card-body">
+
+    
         <div class="row">
+
             
-            <div class="col">
+            <div class="col-md-7 centrar">
+              
 
                 <div *ngIf="detalles" class="card mb-3" style="max-width: 540px;">
                     <div class="row g-0">
                       <div class="col-md-4">
-                        <img src="{{detalles.image}}" class="img-fluid rounded-start" alt="...">
+                        <img src="{{detalles.image}}" class="img-fluid rounded-start img-thumbnail mb-1" alt="...">
                       </div>
-                      <div class="col-md-12">
+                      <div class="col">
                         <div class="card-body">
                           <h5 class="card-title">{{detalles.name}}</h5>
-                          <p class="card-text">{{detalles.episode}}</p>
-                          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                          <h6 class="card-text"><strong>Especie: </strong>{{detalles.species}}</h6>
+                          <h6 *ngIf="detalles.type" class="card-text"><strong>Tipo: </strong>{{detalles.type}}</h6>
+                          <h6 *ngIf="!detalles.type" class="card-text"><strong>Tipo: </strong>No especificado</h6>
+                          <h6 class="card-text"><strong>Género: </strong>{{detalles.gender}}</h6>
+                          <h6 class="card-text"><strong>Origen: </strong>{{detalles.origin.name}}</h6>
+                          <h6 class="card-text"><strong>Localización: </strong>{{detalles.location.name}}</h6>
                         </div>
                       </div>
                     </div>
@@ -21,10 +27,94 @@
 
             </div>
 
-            <div class="col">
-
-            </div>
+           
 
         </div>
-    </div>
-</div>
+
+        <div class="row">
+
+          <div class="col-md-7 centrar">
+
+            <div class="card mb-3" style="max-width: 540px;">
+              <div class="row g-0">
+                
+                <div class="col">
+                  <div class="card-body">
+                    <h5 class="card-title">Episodios</h5>
+                    
+                    <ul *ngIf="tam!=7" class="list-group">
+                      
+                      <li *ngFor="let episodio of all_episodios" 
+                      class="list-group-item"
+                      >
+                        <a type="button"
+                        data-bs-toggle="modal" data-bs-target="#modalEpisodio"
+                        (click)="cargar_episodio(episodio)"
+                        >
+                          {{episodio.name}}
+                        </a>
+
+                      </li>
+                     
+                    </ul>
+
+                    <ul *ngIf="tam==7" class="list-group">
+                      
+                      <li
+                      class="list-group-item"
+                      >
+                        <a type="button"
+                        data-bs-toggle="modal" data-bs-target="#modalEpisodio"
+                        >
+                         {{name}}
+                        </a>
+
+                      </li>
+                     
+                    </ul>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Inicio modal detalles episodio -->
+
+        <div class="modal fade" id="modalEpisodio" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header bg-info">
+                <h5 class="modal-title text-white" id="exampleModalLabel">Detalle episodio</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+               
+                <ul *ngIf="!name" class="list-group">
+                  <li class="list-group-item">
+                    <p *ngIf="episodio"><strong>Nombre: </strong>{{episodio.name}}</p>
+                    <p *ngIf="episodio"><strong>Fecha lanzamiento: </strong>{{episodio.air_date}}</p>
+                    <p *ngIf="episodio"><strong>Episode: </strong>{{episodio.episode}}</p>
+                  </li>
+                </ul>
+
+                <ul *ngIf="name" class="list-group">
+                  <li class="list-group-item">
+                    <p><strong>Nombre: </strong>{{name}}</p>
+                    <p><strong>Fecha lanzamiento: </strong>{{air_date}}</p>
+                    <p><strong>Episode: </strong>{{episode}}</p>
+                  </li>
+                </ul>
+
+              </div>
+              
+            </div>
+          </div>
+        </div>
+
+        <!-- Final modal detalles episodio -->
+   
+

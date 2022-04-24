@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { all_personajes, Result } from 'src/app/interfaces/Rick_morty.interface';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Result } from 'src/app/interfaces/Rick_morty.interface';
 import { PersonajesService } from 'src/app/services/personajes.service';
 
 @Component({
@@ -10,6 +10,7 @@ import { PersonajesService } from 'src/app/services/personajes.service';
 export class PersonajesComponent implements OnInit {
 
   @Input() personajes!: Result[];
+  @ViewChild('scroll') scroll!: ElementRef;
 
   constructor(private servicio_personaje:PersonajesService) { }
 
@@ -21,8 +22,15 @@ export class PersonajesComponent implements OnInit {
   listarPersonajes(){
     this.servicio_personaje.getPersonajes().subscribe(response=>{
       this.personajes = response.results;
-      console.log(this.personajes);
     })
+  }
+
+  scroll_top(){
+    window.scroll({ 
+      top: 0, 
+      left: 0, 
+      behavior: 'smooth' 
+    });   
   }
 
 }
