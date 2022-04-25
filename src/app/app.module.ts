@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { BodyComponent } from './body/body.component';
 import { PersonajesComponent } from './pages/personajes/personajes.component';
-import { HomeComponent } from './pages/home/home.component';
 import { DetailsComponent } from './pages/personajes/details.component';
 
 const routes:Routes = [
@@ -22,7 +21,6 @@ const routes:Routes = [
     HeaderComponent,
     BodyComponent,
     PersonajesComponent,
-    HomeComponent,
     DetailsComponent
   ],
   imports: [

@@ -1,33 +1,36 @@
 <div class="card-header bg-info sombra" id="scroll">
-    <h4>Personajes Rick and Morty</h4>
+  <h4>Personajes Rick and Morty</h4>
 </div>
 
 <div class="row mt-4">
 
-    <div *ngFor="let personaje of personajes" class="col-md-4">
-        
-        <div class="card mb-3" style="max-width: 540px;">
-          <a class="decoration" routerLink="/details-component/{{personaje.id}}" href="#">
-            <div class="row g-0 sombra">
-              <div class="col-md-4">
-               
-                  <img src="{{personaje.image}}" class="img-fluid rounded-start img-thumbnail" alt="...">
-                
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">{{personaje.name}}</h5>
-                </div>
-              </div>
-            </div>
-          </a>
-          </div>
-          
+  <div *ngFor="let personaje of personajes" class="col-md-4">
+    <!-- Card para mostrar personajes -->
+    <div class="card mb-3" style="max-width: 540px;">
+      <!-- Link para navegar a vista para mostrar detalles de un personaje -->
+      <!-- pasando por la URL su respectivo Id -->
+      <a class="decoration" routerLink="/details-component/{{personaje.id}}" href="#">
+        <div class="row g-0 sombra">
+          <div class="col-md-4">
 
+            <img src="{{personaje.image}}" class="img-fluid rounded-start img-thumbnail" alt="...">
+
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">{{personaje.name}}</h5>
+            </div>
+          </div>
+        </div>
+      </a>
     </div>
+
+
+  </div>
 
 </div>
 
+<!-- Botón para top scroll -->
 <div class="top-scroll">
   <button class="btn btn-success sombra" (click)="scroll_top()">
     <i class="fa-solid fa-angles-up"></i>
